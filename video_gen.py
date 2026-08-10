@@ -25,6 +25,7 @@ def create_video(prompt, image=None, mode='ti2vid', num_frames=121, frame_rate=2
         payload["negative_prompt"] = negative_prompt
 
     try:
+        # 添加 proxies 参数
         resp = requests.post(url, json=payload, headers=headers, timeout=60, proxies={'http': None, 'https': None})
         if resp.status_code == 200:
             data = resp.json()
@@ -48,7 +49,8 @@ def get_video_status(video_id, model_name=VIDEO_MODEL):
             "Authorization": f"Bearer {AGNES_API_KEY}",
             "Content-Type": "application/json"
         }
-        resp = requests.get(url, headers=headers, timeout=30)
+        # 添加 proxies 参数
+        resp = requests.get(url, headers=headers, timeout=30, proxies={'http': None, 'https': None})
         if resp.status_code == 200:
             data = resp.json()
             return {
