@@ -21,7 +21,7 @@ def generate_image(prompt, size=DEFAULT_SIZE, return_base64=False):
         payload["extra_body"] = {"response_format": "url"}
 
     try:
-        resp = requests.post(url, json=payload, headers=headers, timeout=180)
+        resp = requests.post(url, json=payload, headers=headers, timeout=180, proxies={'http': None, 'https': None})
         if resp.status_code == 200:
             data = resp.json()
             if return_base64:
@@ -50,7 +50,8 @@ def image_to_image(prompt, image_url_or_base64, size=DEFAULT_SIZE, return_base64
     }
 
     try:
-        resp = requests.post(url, json=payload, headers=headers, timeout=180)
+   
+        resp = requests.post(url, json=payload, headers=headers, timeout=180, proxies={'http': None, 'https': None})
         if resp.status_code == 200:
             data = resp.json()
             if return_base64:
