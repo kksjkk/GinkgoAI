@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于 · 银杏AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        :root{
+            --bg-body:#0b0d15;
+            --glass-bg:rgba(255,255,255,0.06);
+            --glass-border:rgba(255,255,255,0.12);
+            --glass-shadow:0 8px 32px rgba(0,0,0,0.4);
+            --glass-blur:blur(16px);
+            --text-primary:rgba(255,255,255,0.92);
+            --text-secondary:rgba(255,255,255,0.55);
+            --accent:#7cf5b0;
+            --accent-glow:rgba(124,245,176,0.2);
+        }
+        body.light-theme{
+            --bg-body:#f0f2f5;
+            --glass-bg:rgba(255,255,255,0.4);
+            --glass-border:rgba(0,0,0,0.1);
+            --text-primary:#1e293b;
+            --text-secondary:#475569;
+            --accent:#0a7e6b;
+            --accent-glow:rgba(10,126,107,0.2);
+        }
+        body{
+            font-family:'Segoe UI','PingFang SC',system-ui,sans-serif;
+            background:var(--bg-body);
+            color:var(--text-primary);
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:30px;
+            transition:background 0.2s,color 0.2s;
+        }
+        .container{
+            max-width:960px;
+            width:100%;
+            background:var(--glass-bg);
+            backdrop-filter:var(--glass-blur);
+            -webkit-backdrop-filter:var(--glass-blur);
+            border-radius:28px;
+            border:1px solid var(--glass-border);
+            box-shadow:var(--glass-shadow);
+            padding:40px 48px;
+            transition:all 0.3s;
+        }
+        .back-link{
+            display:inline-block;
+            margin-bottom:24px;
+            color:var(--accent);
+            text-decoration:none;
+            font-size:0.9rem;
+            transition:0.2s;
+        }
+        .back-link:hover{text-decoration:underline;}
+        h1{font-size:1.8rem;color:var(--accent);margin-bottom:4px;}
+        .version{color:var(--text-secondary);font-size:0.95rem;margin-bottom:28px;}
+        .grid-2{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:24px;
+        }
+        .section{
+            background:var(--glass-bg);
+            backdrop-filter:var(--glass-blur);
+            border-radius:16px;
+            padding:20px 24px;
+            border-left:4px solid var(--accent);
+            transition:border-color 0.2s;
+            margin-bottom:0;
+        }
+        .section:hover{border-color:var(--text-secondary);}
+        .section-title{
+            font-size:1.15rem;
+            font-weight:600;
+            margin-bottom:12px;
+            color:var(--text-primary);
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        .section p, .section li{
+            color:var(--text-secondary);
+            line-height:1.7;
+            font-size:0.95rem;
+        }
+        .section a{color:var(--accent);text-decoration:none;}
+        .section a:hover{text-decoration:underline;}
+        .tech-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+        .tech-tag{
+            background:var(--glass-bg);
+            backdrop-filter:var(--glass-blur);
+            border:1px solid var(--glass-border);
+            padding:4px 12px;
+            border-radius:20px;
+            font-size:0.8rem;
+            color:var(--text-secondary);
+        }
+        .quote-block{
+            margin-top:14px;
+            padding:14px 18px;
+            background:var(--accent-glow);
+            border-radius:14px;
+            border:1px solid var(--glass-border);
+            font-style:italic;
+            color:var(--text-primary);
+            line-height:1.6;
+            position:relative;
+        }
+        .quote-block::before{
+            content:'“';
+            font-size:2rem;
+            color:var(--accent);
+            opacity:0.4;
+            position:absolute;
+            top:-6px;
+            left:8px;
+        }
+        .quote-author{
+            text-align:right;
+            color:var(--text-secondary);
+            font-size:0.9rem;
+            margin-top:6px;
+            font-style:normal;
+        }
+        .full-width{
+            grid-column:1/-1;
+        }
+        .footer{
+            color:var(--text-secondary);
+            font-size:0.8rem;
+            border-top:1px solid var(--glass-border);
+            padding-top:20px;
+            margin-top:28px;
+            text-align:center;
+        }
+        .footer a{
+            color:var(--accent);
+            font-weight:bold;
+            text-decoration:underline;
+            transition:color 0.2s;
+        }
+        .footer a:hover{color:var(--text-secondary);}
+        @media(max-width:700px){
+            .grid-2{grid-template-columns:1fr;gap:16px;}
+            .container{padding:24px 20px;}
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> 返回对话</a>
+
+    <h1>🍃 银杏AI</h1>
+    <div class="version">版本 1.0 · 2026-07-10</div>
+
+    <div class="grid-2">
+        <div class="section">
+            <div class="section-title"><span>📖</span> 关于项目</div>
+            <p>
+                银杏AI 是一款轻量级智能对话助手，由 System_VM_D62E 独立开发。
+                项目始于 2026年5月，从桌面版迁移至 Web 端，经历了深度思考机制设计、
+                液态玻璃界面打磨、多轮稳定性优化，最终形成现在的 1.0 版本。
+                <br><br>
+                <strong>核心能力：</strong><br>
+                • 💬 智能对话 + 深度思考（思维链展示）<br>
+                • 👁️ 视觉识别（上传图片让AI解读）<br>
+                • 🎨 图像生成（文生图 / 图生图）<br>
+                • 🎬 视频生成（文生视频 / 图生视频，支持短/中/长三档时长）<br>
+                • ⏱️ 视频进度轮询 + 预估剩余时间<br>
+                • 🔍 实时联网搜索（DuckDuckGo）<br>
+                • 🛠️ 实用工具：时间、日期、天气、计算、密码生成、倒计时、日期差<br>
+                • 🎨 液态玻璃 UI + 主题色自定义
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title"><span>🛠️</span> 技术栈</div>
+            <div class="tech-list">
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">智谱 GLM-4-Flash</span>
+                <span class="tech-tag">Agnes Vision</span>
+                <span class="tech-tag">Agnes Image</span>
+                <span class="tech-tag">Agnes Video V2.0</span>
+                <span class="tech-tag">原生 JavaScript</span>
+                <span class="tech-tag">液态玻璃 CSS</span>
+            </div>
+            <div style="margin-top:16px;">
+                <div class="section-title" style="font-size:1rem;margin-bottom:4px;"><span>🔗</span> 更多</div>
+                <p>
+                    <i class="fab fa-bilibili"></i> B站：<a href="https://space.bilibili.com/3546812044544535" target="_blank">space.bilibili.com/3546812044544535</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="section full-width" style="border-left-color: var(--accent);">
+            <div class="section-title"><span>🧑‍💻</span> 主创 · System_VM_D62E</div>
+            <p>
+                独立开发者，关注 AI 交互的自然化与界面轻量化。<br>
+                从 2026 年 5 月启动这个项目开始，一路走过了桌面版迁移、深度思考机制设计、液态玻璃界面打磨，
+                最终在 7 月迎来了稳定版本。
+            </p>
+            <p style="margin-top:6px;">
+                🎯 <strong>项目理念</strong>：让每一次对话都像老朋友重逢。
+            </p>
+            <div class="quote-block">
+                “做银杏AI 最大的动力，是希望它能在对话里拥有呼吸感 —— 不冷冰冰，不照本宣科，
+                而是像一位老朋友那样，听你说话，陪你思考。”
+                <div class="quote-author">—— System_VM_D62E</div>
+            </div>
+        </div>
+
+        <div class="section full-width">
+            <div class="section-title"><span>🙏</span> 致谢</div>
+            <p>
+                感谢所有在开发过程中提供反馈与建议的朋友。<br>
+                感谢智谱AI 提供的 GLM-4-Flash 模型支持。<br>
+                感谢 Agnes AI 提供的视觉、图像与视频生成能力。<br>
+                感谢开源社区提供的优秀工具与灵感。<br><br>
+                <strong style="color:var(--text-primary);">特别感谢每一位使用银杏AI 的用户</strong> ——
+                你们的每一次对话，都是这个项目持续生长的养分。
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="/terms">服务条款</a>
+        &nbsp;·&nbsp;
+        <a href="/privacy">隐私政策</a>
+        &nbsp;·&nbsp;
+        <span>© 2026 System_VM_D62E</span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const saved = localStorage.getItem('ginkgo_settings');
+        if (saved) {
+            try {
+                const settings = JSON.parse(saved);
+                if (settings.theme === 'light') {
+                    document.body.classList.add('light-theme');
+                }
+            } catch(e) {}
+        }
+        const themeColor = localStorage.getItem('themeColor');
+        if (themeColor) {
+            document.documentElement.style.setProperty('--accent', themeColor);
+            const r = parseInt(themeColor.slice(1,3), 16);
+            const g = parseInt(themeColor.slice(3,5), 16);
+            const b = parseInt(themeColor.slice(5,7), 16);
+            document.documentElement.style.setProperty('--accent-glow', `rgba(${r},${g},${b},0.2)`);
+        }
+    })();
+</script>
+</body>
+</html>
